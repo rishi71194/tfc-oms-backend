@@ -16,7 +16,7 @@ public class BonusPenaltyServiceImpl implements BonusPenaltyService {
 
 	@Override
 	public List<BonusPenalty> getAll() {
-		
+
 		return bonusPenaltyDao.getAll();
 	}
 
