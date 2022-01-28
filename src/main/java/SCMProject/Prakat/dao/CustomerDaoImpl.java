@@ -27,6 +27,12 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
+	public CustomerDim getCustomerById(Integer id) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query<CustomerDim> query = (Query<CustomerDim>) currentSession.createQuery("from CustomerDim where customerId = :id", CustomerDim.class)
+				.setParameter("id", id).uniqueResult();
+		return (CustomerDim) query;
+	}
 
 	@Override
 	public void save(CustomerDim customerDim) {		

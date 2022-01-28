@@ -11,6 +11,6 @@ public interface DateDimService {
 List<DateDim> getAll();
 DateDim getByDate(String date);
 List<DateDim> getByYearAndMonth(int year, int month);
-
+List<DateDim> getByYearAndWeek(int year, int week);
 
 }

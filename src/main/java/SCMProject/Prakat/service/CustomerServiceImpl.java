@@ -21,6 +21,11 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.getAll();
 	}
 
+	@Override
+	public CustomerDim getCustomerById(Integer id){
+		return customerDao.getCustomerById(id);
+	};
+
 	@Transactional
 	@Override
 	public void save(CustomerDim customerDim) {

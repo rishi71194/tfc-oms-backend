@@ -8,4 +8,5 @@ public interface ServiceLevelService {
 
 	List<ServiceLevel> getAll();
 	List<ServiceLevel> getByServiceAndCustomerId(int level, int id);
+	String getByDate(String startDate, String endDate);
 }

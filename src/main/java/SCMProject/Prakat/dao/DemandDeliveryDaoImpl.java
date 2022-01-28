@@ -25,4 +25,29 @@ public class DemandDeliveryDaoImpl implements DemandDeliveryDao {
 		return list;
 	}
 
+	@Override
+	public List<DemandDelivery> getByDateID(int id){
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query<DemandDelivery> query = currentSession.createQuery("from DemandDelivery where dateID ="+id, DemandDelivery.class);
+		List<DemandDelivery> list = query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<DemandDelivery> getByCustomerProduct(int cid, int pid){
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query<DemandDelivery> query = currentSession.createQuery("from DemandDelivery where demand>delivery and productID=" +pid+" and customerID="+cid, DemandDelivery.class);
+		List<DemandDelivery> list = query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<DemandDelivery> getByCustomerProductWeek(int year, int week){
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query<DemandDelivery> query = currentSession.createQuery("from DemandDelivery where demand>delivery and productID=" +year+" and customerID="+week, DemandDelivery.class);
+		List<DemandDelivery> list = query.getResultList();
+		return list;
+	}
+
+
 }

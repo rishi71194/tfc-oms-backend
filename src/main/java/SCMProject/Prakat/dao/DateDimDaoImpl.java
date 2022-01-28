@@ -28,7 +28,7 @@ public class DateDimDaoImpl implements DateDimDao {
 	@Override
 	public DateDim getByDate(String date) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query<DateDim> query = currentSession.createQuery("from DateDim where date='"+date+"'");
+		Query<DateDim> query = currentSession.createQuery("from DateDim where edate='"+date+"'");
 		DateDim ob = query.getSingleResult();
 		return ob;
 	}
@@ -41,4 +41,11 @@ public class DateDimDaoImpl implements DateDimDao {
 		return list;
 	}
 
+	@Override
+	public List<DateDim> getByYearAndWeek(int year, int week) {
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query<DateDim> query = currentSession.createQuery("from DateDim where yearNumber="+year+" and weekNumber="+week+" ");
+		List<DateDim> list = query.getResultList();
+		return list;
+	}
 }

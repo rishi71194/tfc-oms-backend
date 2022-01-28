@@ -20,4 +20,22 @@ public class DemandDeliveryServiceImpl implements DemandDeliveryService {
 		return demandDeliveryDao.getAll();
 	}
 
+	@Override
+	public List<DemandDelivery> getByDateID(int d) {
+
+		return demandDeliveryDao.getByDateID(d);
+	}
+
+	@Override
+	public List<DemandDelivery> getByCustomerProduct(int cid, int pid) {
+
+		return demandDeliveryDao.getByCustomerProduct(cid, pid);
+	}
+
+	@Override
+	public List<DemandDelivery> getByCustomerProductWeek(int year, int week) {
+
+		return demandDeliveryDao.getByCustomerProduct(year, week);
+	}
+
 }

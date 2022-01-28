@@ -25,7 +25,7 @@ public class DateDimServiceImpl implements DateDimService {
 	@Override
 	public DateDim getByDate(String date) {
 
-		return (DateDim) dateDimDao.getByDate(date);
+		return dateDimDao.getByDate(date);
 	}
 
 
@@ -34,5 +34,12 @@ public class DateDimServiceImpl implements DateDimService {
 
 		return dateDimDao.getByYearAndMonth(year, month);
 	}
+
+	@Override
+	public List<DateDim> getByYearAndWeek(int year, int week) {
+
+		return dateDimDao.getByYearAndMonth(year, week);
+	}
+
 
 }

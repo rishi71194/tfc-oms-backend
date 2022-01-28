@@ -17,13 +17,13 @@ public class DemandDelivery {
 	private int customerID;
 	
 	@Column(name = "date_id")
-	private String dateID;
+	private int dateID;
 	
 	@Column(name = "delivery")
-	private String delivery;
+	private int delivery;
 	
 	@Column(name = "demand")
-	private String demand;
+	private int demand;
 
 	public int getProductID() {
 		return productID;
@@ -41,27 +41,27 @@ public class DemandDelivery {
 		this.customerID = customerID;
 	}
 
-	public String getDateID() {
+	public int getDateID() {
 		return dateID;
 	}
 
-	public void setDateID(String dateID) {
+	public void setDateID(int dateID) {
 		this.dateID = dateID;
 	}
 
-	public String getDelivery() {
+	public int getDelivery() {
 		return delivery;
 	}
 
-	public void setDelivery(String delivery) {
+	public void setDelivery(int delivery) {
 		this.delivery = delivery;
 	}
 
-	public String getDemand() {
+	public int getDemand() {
 		return demand;
 	}
 
-	public void setDemand(String demand) {
+	public void setDemand(int demand) {
 		this.demand = demand;
 	}
 

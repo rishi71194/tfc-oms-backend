@@ -1,7 +1,6 @@
 package SCMProject.Prakat.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +21,11 @@ public class ServiceLevelServiceImpl implements ServiceLevelService{
 	@Override
 	public List<ServiceLevel> getByServiceAndCustomerId(int level, int id) {
 		return serviceLevelDao.getByServiceAndCustomerId(level,id);
+	}
+
+	@Override
+	public String getByDate(String startDate, String endDate) {
+		return serviceLevelDao.getServiceLevelByDate(startDate, endDate);
 	}
 
 }
