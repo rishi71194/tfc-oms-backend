@@ -30,7 +30,8 @@ public class ProductionController {
 	}
 	
 	 
-	
+	//Compute stockEOD(t) from stockEOD(t-1), customer delivery, production, rejects,
+	//obsoletes, startuploss, backorder etc
 	@GetMapping("/getbydate")
 	public List<Production> getProduction(@RequestParam(name="date", required = true) String date, @RequestParam(name="productid", defaultValue = "0") int productid){
 		//return productionService.getAll();

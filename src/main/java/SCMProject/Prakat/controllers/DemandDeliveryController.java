@@ -21,17 +21,22 @@ public class DemandDeliveryController {
 		return demandDeliveryService.getAll();
 	}
 
+	//Find the number of instances where service level (order line) was not met – for a
+	//customer/product.
 	@GetMapping("/{d}")
 	public List<DemandDelivery> getByDateId(@PathVariable int d)
 	{
 		return demandDeliveryService.getByDateID(d);
 	}
 
+
+	//Find the number of instances where service level (order line) was not met – for a
+	//customer per product.
 	@GetMapping("/getcustomer")
-	public int getSLNotMet(@RequestParam(value="customerid", required = true) int cid, @RequestParam(value="productid", defaultValue ="0" ) int pid)
+	public List<DemandDelivery> getSLNotMet(@RequestParam(value="customerid", required = true) int cid, @RequestParam(value="productid", defaultValue ="1" ) int pid)
 	{
 		List<DemandDelivery> list =  demandDeliveryService.getByCustomerProduct(cid, pid);
-		return list.size();
+		return list;
 	}
 
 	@GetMapping("/getweekly")

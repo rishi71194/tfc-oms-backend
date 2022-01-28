@@ -8,8 +8,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name= "demanddelivery")
 public class DemandDelivery {
-	
 	@Id
+	private int id;
+
 	@Column(name = "product_id")
 	private int productID;
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import SCMProject.Prakat.model.Production;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,14 @@ public class DemandDeliveryDaoImpl implements DemandDeliveryDao {
 	@Override
 	public List<DemandDelivery> getByCustomerProduct(int cid, int pid){
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query<DemandDelivery> query = currentSession.createQuery("from DemandDelivery where demand>delivery and productID=" +pid+" and customerID="+cid, DemandDelivery.class);
+		String condition=" where demand>delivery and productID ="+pid+"";
+		if(cid>0)
+		{
+			condition+=" and customerID="+cid;
+		}
+		Query<DemandDelivery> query = currentSession.createQuery("from DemandDelivery"+condition);
 		List<DemandDelivery> list = query.getResultList();
+		System.out.println(list.toString());
 		return list;
 	}
 

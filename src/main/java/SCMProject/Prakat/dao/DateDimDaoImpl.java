@@ -34,6 +34,15 @@ public class DateDimDaoImpl implements DateDimDao {
 	}
 
 	@Override
+	public int getNumberOfDays(String startDate, String endDate) {
+		int sDate = getByDate(startDate).getDateID();
+		int eDate = getByDate(endDate).getDateID();
+		int nod = eDate-sDate;
+		return nod;
+	}
+
+
+	@Override
 	public List<DateDim> getByYearAndMonth(int year, int month) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Query<DateDim> query = currentSession.createQuery("from DateDim where yearNumber="+year+" and monthNumber="+month+" ");

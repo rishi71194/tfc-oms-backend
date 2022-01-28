@@ -23,7 +23,8 @@ public class ShelfLifeController {
 	{
 		return shelfLifeService.getAll();
 	}*/
-	
+
+	//Given a promised shelf life, compute the contract index
 	@GetMapping("/get")
 	public List<ShelfLife> getByShelfLifeAndCustomerID(@RequestParam(name="shelflife", required = true) int shelflife,@RequestParam(name="customerid", defaultValue = "0") int id){
 		
