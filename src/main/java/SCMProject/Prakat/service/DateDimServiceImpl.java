@@ -29,11 +29,6 @@ public class DateDimServiceImpl implements DateDimService {
 	}
 
 	@Override
-	public int getNoOfDays(String startDate, String endDate) {
-		return dateDimDao.getNumberOfDays(startDate, endDate);
-	}
-
-	@Override
 	public List<DateDim> getByYearAndMonth(int year, int month) {
 
 		return dateDimDao.getByYearAndMonth(year, month);
@@ -42,7 +37,7 @@ public class DateDimServiceImpl implements DateDimService {
 	@Override
 	public List<DateDim> getByYearAndWeek(int year, int week) {
 
-		return dateDimDao.getByYearAndMonth(year, week);
+		return dateDimDao.getByYearAndWeek(year, week);
 	}
 
 

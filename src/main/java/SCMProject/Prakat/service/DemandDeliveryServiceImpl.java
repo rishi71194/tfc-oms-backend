@@ -38,4 +38,10 @@ public class DemandDeliveryServiceImpl implements DemandDeliveryService {
 		return demandDeliveryDao.getByCustomerProduct(year, week);
 	}
 
+	@Override
+	public List<DemandDelivery> getByDemandPerWeek(int year, int week, int cid, int pid) {
+
+		return demandDeliveryDao.getByDemandPerWeek(year, week, cid, pid);
+	}
+
 }

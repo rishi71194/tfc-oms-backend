@@ -28,17 +28,9 @@ public class DateDimDaoImpl implements DateDimDao {
 	@Override
 	public DateDim getByDate(String date) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query<DateDim> query = currentSession.createQuery("from DateDim where edate='"+date+"'");
+		Query<DateDim> query = currentSession.createQuery("from DateDim where edate='" + date + "'");
 		DateDim ob = query.getSingleResult();
 		return ob;
-	}
-
-	@Override
-	public int getNumberOfDays(String startDate, String endDate) {
-		int sDate = getByDate(startDate).getDateID();
-		int eDate = getByDate(endDate).getDateID();
-		int nod = eDate-sDate;
-		return nod;
 	}
 
 
@@ -57,4 +49,5 @@ public class DateDimDaoImpl implements DateDimDao {
 		List<DateDim> list = query.getResultList();
 		return list;
 	}
+
 }

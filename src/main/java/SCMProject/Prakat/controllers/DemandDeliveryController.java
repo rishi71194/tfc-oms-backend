@@ -40,16 +40,13 @@ public class DemandDeliveryController {
 	}
 
 	@GetMapping("/getweekly")
-	public int getWeeklyDemand(@RequestParam(value="yearnumber", required = true) int yn, @RequestParam(value="weeknumber", defaultValue ="0" ) int wn)
+	public List<DemandDelivery> getWeeklyDemand(@RequestParam(value="yearnumber", required = true) int yn,
+							   @RequestParam(value="weeknumber", defaultValue ="0", required = true ) int wn,
+							   @RequestParam(value="cid", defaultValue ="603", required = true ) int cid,
+							   @RequestParam(value="pid", defaultValue ="1", required = true ) int pid)
 	{
-		List<DemandDelivery> list =  demandDeliveryService.getByCustomerProductWeek(yn, wn);
-		return list.size();
+		List<DemandDelivery> list = demandDeliveryService.getByDemandPerWeek(yn, wn, cid, pid);
+		return list;
 	}
 
-	@GetMapping("/getweekly/customer")
-	public int get(@RequestParam(value="id", required = true) int cid, @RequestParam(value="product", defaultValue ="0" ) int pid)
-	{
-		List<DemandDelivery> list =  demandDeliveryService.getByCustomerProduct(cid, pid);
-		return list.size();
-	}
 }

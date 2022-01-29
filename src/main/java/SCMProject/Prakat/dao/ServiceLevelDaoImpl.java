@@ -90,22 +90,8 @@ public class ServiceLevelDaoImpl implements ServiceLevelDao{
 
 	@Override
 	public String getServiceLevelByOrderLine(String startDate, String endDate, int pid, int cid) {
-		DateDim ob1 = date.getByDate(startDate);
-		int startDateId = ob1.getDateID();
-		DateDim ob2 = date.getByDate(endDate);
-		int endDateId = ob2.getDateID();
 
-		List<DemandDelivery> op1 = demandDelivery.getByCustomerProduct(cid, pid);
-		int demand = 0;
-		int delivery = 0;
-		int count1 = 0, total1 = op1.size();
-		int count2 = 0;
-		for (DemandDelivery i : op1) {
-			demand = i.getDemand();
-			delivery = i.getDelivery();
-		}
-
-		return "Done";
+		return "";
 	}
 
 

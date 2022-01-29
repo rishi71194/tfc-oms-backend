@@ -21,7 +21,7 @@ public class ServiceLevelController {
 	}
 	*/
 
-	//Given a promised sevice level, compute the contract index
+	//Given a promised service level, compute the contract index
 	@GetMapping("/getservice")
 	public List<ServiceLevel> getAll(@RequestParam(value="level", required = true) int level, @RequestParam(value="customerid", defaultValue = "0") int id){
 		//System.out.println(level+" "+id);

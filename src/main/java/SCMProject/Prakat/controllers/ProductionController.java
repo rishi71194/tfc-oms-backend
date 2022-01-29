@@ -68,5 +68,32 @@ public class ProductionController {
 		 
 		return stock;
 	}
+
+	@GetMapping("/getbyweek")
+	public List<Production> getProductionByWeek(@RequestParam(name="year", required = true) int year, @RequestParam(name="week", required = true) int week){
+		List<DateDim> ob =  dateDimService.getByYearAndWeek(year,week);
+		int enddateid = ob.get(ob.size()-1).getDateID();
+		int startdateid = ob.get(0).getDateID();
+		List<Production> stock = productionService.getProductionByDateID(enddateid, 0);
+		List<Production> other = productionService.getProductionByDateRange(startdateid, enddateid, 0);
+		//System.out.println(other.toString());
+		for(int i=0;i<stock.size();i++)
+		{
+			Production pr = new Production();
+			pr.setDateID(enddateid);
+			pr.setStockEOD(stock.get(i).getStockEOD());
+			pr.setProductID(other.get(i).getProductID());
+			pr.setDeliveryFromProduction(other.get(i).getDeliveryFromProduction());
+			pr.setObsoletes(other.get(i).getObsoletes());
+			pr.setInBackorder(other.get(i).getInBackorder());
+			pr.setRejection(other.get(i).getRejection());
+			pr.setStartupLoss(other.get(i).getStartupLoss());
+			stock.set(i, pr);
+
+		}
+
+
+		return stock;
+	}
 	
 }

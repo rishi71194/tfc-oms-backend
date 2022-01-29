@@ -10,4 +10,5 @@ public interface DemandDeliveryService {
 	List<DemandDelivery> getByDateID(int dateid1);
 	List<DemandDelivery> getByCustomerProduct(int cid, int pid);
 	List<DemandDelivery> getByCustomerProductWeek(int year, int week);
+	List<DemandDelivery> getByDemandPerWeek(int year, int week, int cid, int pid);
 }
