@@ -40,7 +40,6 @@ public class DemandDeliveryServiceImpl implements DemandDeliveryService {
 
 	@Override
 	public List<DemandDelivery> getByDemandPerWeek(int year, int week, int cid, int pid) {
-
 		return demandDeliveryDao.getByDemandPerWeek(year, week, cid, pid);
 	}
 

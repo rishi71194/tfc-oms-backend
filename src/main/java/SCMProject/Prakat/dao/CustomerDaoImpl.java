@@ -27,11 +27,11 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
-	public CustomerDim getCustomerById(Integer id) {
+	public CustomerDim getCustomerByID(Integer id) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query<CustomerDim> query = (Query<CustomerDim>) currentSession.createQuery("from CustomerDim where customerId = :id", CustomerDim.class)
-				.setParameter("id", id).uniqueResult();
-		return (CustomerDim) query;
+		Query<CustomerDim> query = currentSession.createQuery("from CustomerDim where customerId = " + id, CustomerDim.class);
+		CustomerDim list = query.getSingleResult();
+		return list;
 	}
 
 	@Override

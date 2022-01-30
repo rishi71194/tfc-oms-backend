@@ -28,9 +28,9 @@ public class CustomerController {
 
 	@GetMapping("/{id}")
 	@ResponseBody
-	public CustomerDim getCustomerByID(@PathVariable Integer id)
+	public CustomerDim getCustomerByID(@PathVariable("id") int id)
 	{
-		return getCustomerByID(id);
+		return customerService.getCustomerByID(id);
 	}
 
 	@PostMapping("/save")

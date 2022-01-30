@@ -8,5 +8,5 @@ public interface CustomerService {
 	
 	List<CustomerDim> getAll();
 	void save(CustomerDim customerDim);
-	CustomerDim getCustomerById(Integer id);
+	CustomerDim getCustomerByID(Integer id);
 }
